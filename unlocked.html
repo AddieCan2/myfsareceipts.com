@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thank You – Unlimited Clean Receipts</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body{font-family:Arial;text-align:center;padding:20px;background:#e8f5e8;max-width:600px;margin:auto}
+    input,button{width:90%;padding:14px;margin:10px;font-size:18px;border-radius:8px;border:none}
+    button{background:#00c853;color:white;cursor:pointer}
+  </style>
+</head>
+<body>
+  <h1>Thank You! Lifetime Access Unlocked</h1>
+  <p>Generate as many clean receipts as you need – no watermark, ever.</p>
+
+  <form>
+    <input placeholder="Item description (e.g. Bandages)" required id="i2">
+    <input placeholder="Amount (e.g. 124.50)" required id="a2">
+    <input type="date" required id="d2">
+    <button type="button" onclick="generateClean()">Generate Clean Receipt (Print/Save)</button>
+  </form>
+
+  <script>
+    function generateClean() {
+      var item = document.getElementById('i2').value;
+      var amount = document.getElementById('a2').value;
+      var date = document.getElementById('d2').value;
+      if (!item || !amount || !date) { alert('Please fill all fields'); return; }
+      var html = '<center><h2>Itemized Receipt</h2><p><b>Description:</b> ' + item + '<br><b>Date of Purchase:</b> ' + date + '<br><b>Amount Paid:</b> $' + amount + '<br><br>I certify this is an eligible expense under IRS Section 213(d).</p><hr><small>myfsareceipts.com</small></center>';
+      var win = window.open('', '_blank');
+      win.document.write('<html><head><title>Clean Receipt</title></head><body onload="window.print()">' + html + '</body></html>');
+      win.document.close();
+    }
+  </script>
+
+  <p>Bookmark this page – it never expires!</p>
+</body>
+</html>
