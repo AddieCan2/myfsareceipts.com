@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Save Your FSA Money Before Dec 31 – myfsareceipts.com</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body{font-family:Arial;background:#f0f7ff;text-align:center;padding:20px;max-width:600px;margin:auto}
+    input,button{width:90%;padding:14px;margin:10px;font-size:18px;border-radius:8px;border:none}
+    button{background:#d32f2f;color:white}
+    .pay{background:#00c853;color:white;padding:20px;font-size:24px;text-decoration:none;display:block;margin:30px auto;border-radius:12px}
+    h1{color:#d32f2f}
+  </style>
+</head>
+<body>
+  <h1>Last Chance: Save Your 2025 FSA/HSA Money!</h1>
+  <p>Try a free sample receipt below (big red watermark – just to prove it works)</p>
+
+  <form action="https://api.html2pdf.app/v1/html-to-pdf" method="post" target="_blank">
+    <input type="text" name="html" value="<div style='position:relative'><h1 style='position:absolute;top:150px;left:50px;transform:rotate(-35deg);color:red;font-size:90px;opacity:0.4;z-index:999'>SAMPLE – NOT VALID</h1><center><h2>Itemized Receipt</h2><p><b>Item:</b> {{item}}<br><b>Date:</b> {{date}}<br><b>Amount:</b> ${{amount}}<br><br>Eligible medical expense • IRS compliant</p><hr><small>myfsareceipts.com</small></center></div>" hidden>
+    <input type="text" placeholder="Item (e.g. Sunscreen SPF 50)" required id="i">
+    <input type="text" placeholder="Amount (e.g. 34.97)" required id="a">
+    <input type="date" required id="d">
+    <button type="submit" onclick="this.form.html.value=this.form.html.value.replace('{{item}}',document.getElementById('i').value).replace('{{amount}}
