@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Thank You – Unlimited Clean Receipts</title>
+  <title>Save Your FSA Money Before Dec 31 – myfsareceipts.com</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    body{font-family:Arial;text-align:center;padding:20px;background:#e8f5e8;max-width:600px;margin:auto}
+    body{font-family:Arial;background:#f0f7ff;text-align:center;padding:20px;max-width:600px;margin:auto}
     input,button{width:90%;padding:14px;margin:10px;font-size:18px;border-radius:8px;border:none}
-    button{background:#00c853;color:white;cursor:pointer}
+    button{background:#d32f2f;color:white;cursor:pointer}
+    .pay{background:#00c853;color:white;padding:20px;font-size:24px;text-decoration:none;display:block;margin:30px auto;border-radius:12px}
+    h1{color:#d32f2f}
   </style>
 </head>
 <body>
-  <h1>Thank You! Lifetime Access Unlocked 🎉</h1>
-  <p>Generate as many clean receipts as you need – no watermark, ever.</p>
+  <h1>Last Chance: Save Your 2025 FSA/HSA Money!</h1>
+  <p>Try a free sample receipt below (big red watermark – just to prove it works)</p>
 
-  <form id="form2" target="_blank">
-    <input placeholder="Item description (e.g. Bandages)" required id="i2">
-    <input placeholder="Amount (e.g. 124.50)" required id="a2">
-    <input type="date" required id="d2">
-    <button type="button" onclick="generateClean()">Generate Clean Receipt (Print/Save)</button>
+  <form>
+    <input type="text" placeholder="Item (e.g. Sunscreen SPF 50)" required id="i">
+    <input type="text" placeholder="Amount (e.g. 34.97)" required id="a">
+    <input type="date" required id="d">
+    <button type="button" onclick="generateSample()">Generate Free Watermarked Sample</button>
   </form>
 
   <script>
-    function generateClean() {
-      var item = document.getElementById('i2').value;
-      var amount = document.getElementById('a2').value;
-      var date = document.getElementById('d2').value;
-      if (!item || !amount || !date) { alert('Fill all fields!'); return; }
-      var html = '<center><h2>Itemized Receipt</h2><p><b>Description:</b> ' + item + '<br><b>Date of Purchase:</b> ' + date + '<br><b>Amount Paid:</b> $' + amount + '<br><br>I certify this is an eligible expense under IRS Section 213(d).</p><hr><small>myfsareceipts.com</small></center>';
+    function generateSample() {
+      var item = document.getElementById('i').value;
+      var amount = document.getElementById('a').value;
+      var date = document.getElementById('d').value;
+      if (!item || !amount || !date) { alert('Please fill all fields'); return; }
+      var html = '<div style="position:relative"><h1 style="position:absolute;top:150px;left:50px;transform:rotate(-35deg);color:red;font-size:90px;opacity:0.4;z-index:999">SAMPLE – NOT VALID</h1><center><h2>Itemized Receipt</h2><p><b>Item:</b> ' + item + '<br><b>Date:</b> ' + date + '<br><b>Amount:</b> $' + amount + '<br><br>Eligible medical expense • IRS compliant</p><hr><small>myfsareceipts.com</small></center></div>';
       var win = window.open('', '_blank');
-      win.document.write('<html><head><title>Receipt</title></head><body>' + html + '</body></html>');
+      win.document.write('<html><head><title>Sample Receipt</title></head><body onload="window.print()">' + html + '</body></html>');
       win.document.close();
-      win.print();
     }
   </script>
-  <p>Bookmark this page – it never expires!</p>
+
+  <p>Want clean receipts with no watermark?<br>One-time $39 → unlimited forever</p>
+  <a href="#" class="pay" id="buyButton">Unlock Lifetime Clean Receipts – $39</a>
+
+  <p>After payment you’re instantly taken to the full version.</p>
+
+  <script>
+    // ←←← PUT YOUR REAL GUMROAD LINK HERE AFTER YOU CREATE IT ←←←
+    document.getElementById('buyButton').href = "https://yourname.gumroad.com/l/yourproduct";
+  </script>
 </body>
 </html>
